@@ -19,6 +19,8 @@ export class UserService {
         throw new ApiError(409, "Не удалось зарегистрироваться", {
           email: "Пользователь с такой почтой уже существует",
         });
+      } else {
+        return await $api.post<User>("user", data);
       }
     } catch (e) {
       return await $api.post<User>("user", data);

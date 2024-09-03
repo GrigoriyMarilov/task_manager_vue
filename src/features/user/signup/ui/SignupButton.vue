@@ -30,6 +30,12 @@ export default defineComponent({
     const handleClick = async () => {
       if (form) {
         try {
+          if (!form.context?.state.valid) {
+            toast.error(
+              "Форма содержит ошибки. Пожалуйста, исправьте их перед отправкой.",
+            );
+            return;
+          }
           const res = await UserService.signup(form.value);
 
           if (!res) return;
