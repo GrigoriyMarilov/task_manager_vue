@@ -41,6 +41,7 @@ export default defineComponent({
           createdAt: new Date().getTime(),
         });
         toast.success("Задача успешно создана");
+        form.reset();
         addTask(res.data);
         emit("success", res.data);
       } catch (error) {

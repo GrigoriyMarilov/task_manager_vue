@@ -1,25 +1,22 @@
 <template>
   <div class="relative">
-    <RouterLink :to="taskPath">
-      <el-card
-        class="p-4 shadow-lg rounded-lg cursor-pointer hover:bg-gray-100"
-      >
-        <div class="flex items-center justify-between mb-4">
-          <h3 class="text-xl font-semibold">{{ task.name }}</h3>
+    <el-card class="p-4 shadow-lg rounded-lg cursor-pointer hover:bg-gray-100">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-semibold">{{ task.name }}</h3>
 
-          <div class="text-gray-500 text-sm">
-            До: {{ formatDate(task.deadline) }}
-            <span :class="statusClass"
-              >{{ task.status ? "Выполнена" : "Не выполнена" }}
-            </span>
-          </div>
+        <div class="text-gray-500 text-sm">
+          До: {{ formatDate(task.deadline) }}
+          <span :class="statusClass"
+            >{{ task.status ? "Выполнена" : "Не выполнена" }}
+          </span>
         </div>
+      </div>
 
-        <div class="text-gray-600 mb-4">
-          <p class="text-sm">{{ task.description }}</p>
-        </div>
-      </el-card>
-    </RouterLink>
+      <div class="text-gray-600 mb-4">
+        <p class="text-sm">{{ task.description }}</p>
+      </div>
+    </el-card>
+
     <div class="absolute bottom-4 right-4">
       <slot name="feature-buttons" :task="task" />
     </div>
